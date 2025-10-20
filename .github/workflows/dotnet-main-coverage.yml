@@ -27,7 +27,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Test and generate coverage
-      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.Item.Settings.Format=opencover
+      run: dotnet test --no-build --verbosity normal --collect:"XPlat Code Coverage;Format=opencover"
     - name: Run coverage report generation
       run: reportgenerator -reports:"**/coverage*.xml" -targetdir:"coveragereport" -reporttypes:Html
     - name: Upload Coverage Report
